@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NetsuiteIntegrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="JetOrder">
+          <Key>
+            <PropertyRef Name="JetOrderId" />
+          </Key>
+          <Property Name="JetOrderId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MerchantOrderId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrderDateTime" Type="datetime" Nullable="false" />
+          <Property Name="ShipToEmail" Type="varchar" MaxLength="50" />
+          <Property Name="ShipToPhone" Type="varchar" MaxLength="50" />
+          <Property Name="ShipToAddress1" Type="varchar" MaxLength="50" />
+          <Property Name="ShipToAddress2" Type="varchar" MaxLength="50" />
+          <Property Name="ShipToCity" Type="varchar" MaxLength="50" />
+          <Property Name="ShipToState" Type="varchar" MaxLength="50" />
+          <Property Name="ShipToZip" Type="varchar" MaxLength="50" />
+          <Property Name="ShipToCountry" Type="varchar" MaxLength="50" />
+          <Property Name="BillToName" Type="varchar" MaxLength="50" />
+          <Property Name="BillToEmail" Type="varchar" MaxLength="50" />
+          <Property Name="BillToAddress1" Type="varchar" MaxLength="50" />
+          <Property Name="BillToAddress2" Type="varchar" MaxLength="50" />
+          <Property Name="BillToCity" Type="varchar" MaxLength="50" />
+          <Property Name="BillToState" Type="varchar" MaxLength="50" />
+          <Property Name="BillToZip" Type="varchar" MaxLength="50" />
+          <Property Name="BillToCountry" Type="varchar" MaxLength="50" />
+          <Property Name="BillToPhone" Type="varchar" MaxLength="50" />
+          <Property Name="SubTotal" Type="numeric" Precision="6" Scale="2" />
+          <Property Name="Shipping" Type="smallmoney" />
+          <Property Name="Handling" Type="smallmoney" />
+          <Property Name="Tax" Type="smallmoney" />
+          <Property Name="Discount" Type="smallmoney" />
+          <Property Name="GrandTotal" Type="smallmoney" />
+          <Property Name="PaymentType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="JetOrderLine">
+          <Key>
+            <PropertyRef Name="JetOrderLineId" />
+          </Key>
+          <Property Name="JetOrderLineId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="JetOrderId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sku" Type="varchar" MaxLength="50" />
+          <Property Name="ProductName" Type="varchar" MaxLength="150" />
+          <Property Name="Quantity" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="smallmoney" />
+        </EntityType>
+        <EntityContainer Name="NetsuiteIntegrationModelStoreContainer">
+          <EntitySet Name="JetOrder" EntityType="Self.JetOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JetOrderLine" EntityType="Self.JetOrderLine" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NetsuiteIntegrationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="NetsuiteIntegrationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="JetOrders" EntityType="NetsuiteIntegrationModel.JetOrder" />
+          <EntitySet Name="JetOrderLines" EntityType="NetsuiteIntegrationModel.JetOrderLine" />
+        </EntityContainer>
+        <EntityType Name="JetOrder">
+          <Key>
+            <PropertyRef Name="JetOrderId" />
+          </Key>
+          <Property Name="JetOrderId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MerchantOrderId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ShipToEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShipToPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShipToAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShipToAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShipToCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShipToState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShipToZip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShipToCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BillToName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BillToEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BillToAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BillToAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BillToCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BillToState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BillToZip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BillToCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BillToPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubTotal" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="Shipping" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Handling" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Tax" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Discount" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="GrandTotal" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="PaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="JetOrderLine">
+          <Key>
+            <PropertyRef Name="JetOrderLineId" />
+          </Key>
+          <Property Name="JetOrderLineId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JetOrderId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sku" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="4" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NetsuiteIntegrationModelStoreContainer" CdmEntityContainer="NetsuiteIntegrationEntities">
+          <EntitySetMapping Name="JetOrders">
+            <EntityTypeMapping TypeName="NetsuiteIntegrationModel.JetOrder">
+              <MappingFragment StoreEntitySet="JetOrder">
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="Handling" ColumnName="Handling" />
+                <ScalarProperty Name="Shipping" ColumnName="Shipping" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="BillToPhone" ColumnName="BillToPhone" />
+                <ScalarProperty Name="BillToCountry" ColumnName="BillToCountry" />
+                <ScalarProperty Name="BillToZip" ColumnName="BillToZip" />
+                <ScalarProperty Name="BillToState" ColumnName="BillToState" />
+                <ScalarProperty Name="BillToCity" ColumnName="BillToCity" />
+                <ScalarProperty Name="BillToAddress2" ColumnName="BillToAddress2" />
+                <ScalarProperty Name="BillToAddress1" ColumnName="BillToAddress1" />
+                <ScalarProperty Name="BillToEmail" ColumnName="BillToEmail" />
+                <ScalarProperty Name="BillToName" ColumnName="BillToName" />
+                <ScalarProperty Name="ShipToCountry" ColumnName="ShipToCountry" />
+                <ScalarProperty Name="ShipToZip" ColumnName="ShipToZip" />
+                <ScalarProperty Name="ShipToState" ColumnName="ShipToState" />
+                <ScalarProperty Name="ShipToCity" ColumnName="ShipToCity" />
+                <ScalarProperty Name="ShipToAddress2" ColumnName="ShipToAddress2" />
+                <ScalarProperty Name="ShipToAddress1" ColumnName="ShipToAddress1" />
+                <ScalarProperty Name="ShipToPhone" ColumnName="ShipToPhone" />
+                <ScalarProperty Name="ShipToEmail" ColumnName="ShipToEmail" />
+                <ScalarProperty Name="OrderDateTime" ColumnName="OrderDateTime" />
+                <ScalarProperty Name="MerchantOrderId" ColumnName="MerchantOrderId" />
+                <ScalarProperty Name="JetOrderId" ColumnName="JetOrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JetOrderLines">
+            <EntityTypeMapping TypeName="NetsuiteIntegrationModel.JetOrderLine">
+              <MappingFragment StoreEntitySet="JetOrderLine">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Sku" ColumnName="Sku" />
+                <ScalarProperty Name="JetOrderId" ColumnName="JetOrderId" />
+                <ScalarProperty Name="JetOrderLineId" ColumnName="JetOrderLineId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

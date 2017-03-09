@@ -1,0 +1,15 @@
+{
+"shipments":[
+	{
+	"shipment_tracking_number":"nzdu913948129034",
+	"response_shipment_date":"2015-10-12T00:00:00.0000000-00:10",
+	"response_shipment_method":"Ground",
+	"expected_delivery_date":"2015-10-14T00:00:00.0000000-00:10",
+	"carrier":"UPS",
+	"shipment_items":
+		[
+			{"merchant_sku":"4000310","response_shipment_sku_quantity":5}
+		]
+	}
+]
+}
